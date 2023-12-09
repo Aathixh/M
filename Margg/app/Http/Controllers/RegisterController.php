@@ -23,15 +23,18 @@ class RegisterController extends Controller
         $request->validate(['phn_num' => 'required']);
         $request->validate(['password' => 'required|confirmed']);
         $request->validate(['password_confirmation' => 'required']);
-
-        $newuser = User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
-            'phn_num' => $request->input('phn_num'),
-        ]);
-
-        Auth::login($newuser);
-        // return redirect('/home');
+        try {
+            $newuser = User::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($request->input('password')),
+                'phn_num' => $request->input('phn_num'),
+            ]);
+            return redirect('/signin');
+        } catch (\Exception $e) {
+            // return back()->withErrors(['Invalid credentials!']);
+            return redirect()->route('signup')->withErrors(['Invalid credentials!']);
+        }
     }
 }
+

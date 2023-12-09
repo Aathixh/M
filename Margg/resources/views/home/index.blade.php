@@ -12,7 +12,7 @@
         <h1>Welcome to Margg!</h1>
     </header>
     <a href="/login"><button>Register</button></a>
-    <!-- <a href="/login"><button>Login</button></a> -->
+    <a href="/signin"><button>Login</button></a>
     <footer>
         <h3>About</h3>
         <p>"MARGG" is a startup idea focused on revolutionizing the way people track buses and enhance public
