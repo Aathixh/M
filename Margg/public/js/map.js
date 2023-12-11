@@ -24,7 +24,9 @@ var mapOptions = {
  }
  
  // Creating a marker
- var marker = L.marker([17.385044, 78.486671], markerOptions);
+ var marker = L.marker([latitude, longitude], markerOptions);
+      bindPopup('Latitude: ' + latitude + '<br>Longitude: ' + longitude)
+      .openPopup();
  
  // Adding marker to the map
  marker.addTo(map);

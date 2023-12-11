@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LocateController;
+use App\Http\Controllers\ThingSpeakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,5 @@ Route::view('/home', 'home.index')->middleware('guest');
 Route::get('/signin', [LoginController::class, 'index']);
 Route::post('/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
-
-Route::get('/locate', [LocateController::class, 'index']);
+Route::get('/locate', [LocateController::class, 'index'])->middleware('auth');
+Route::get('/get-data-from-thingspeak', [ThingSpeakController::class, 'getDataFromThingSpeak']);
