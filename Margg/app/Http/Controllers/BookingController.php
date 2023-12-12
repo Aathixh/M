@@ -12,7 +12,7 @@ class BookingController extends Controller
     public function index()
     {
         $BusDetails = Bus::all();
-        return view('booking.menu', ['BusData' => $data]);
+        return view('booking.menu', ['BusData' => $BusDetails]);
     }
 
 }

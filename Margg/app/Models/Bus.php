@@ -9,12 +9,12 @@ class Bus extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Bus No',
-        'Arrival Time',
+        'Bus_No',
+        'Arrival_Time',
         'Date',
         'Duration',
-        'Departure Time',
-        'Arrival Date',
+        'Departure_Time',
+        'Arrival_Date',
         'From',
         'To',
         'Price',

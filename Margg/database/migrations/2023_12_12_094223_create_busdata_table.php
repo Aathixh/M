@@ -10,14 +10,14 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('busdata', function (Blueprint $table) {
+        Schema::create('buses', function (Blueprint $table) {
             $table->id();
-            $table->string("Bus No");
-            $table->time("Arrival Time");
+            $table->string("Bus_No");
+            $table->time("Arrival_Time");
             $table->date("Date");
             $table->time("Duration");
-            $table->time("Departure Time");
-            $table->date("Arrival Date");
+            $table->time("Departure_Time");
+            $table->date("Arrival_Date");
             $table->string("From");
             $table->string("To");
             $table->string("Price");
