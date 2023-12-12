@@ -17,16 +17,18 @@ var mapOptions = {
  scale.addTo(map); // Adding scale control to the map
  
  // Creating a Marker properties for dragging and moving
- var markerOptions = {
-    title: "MyLocation",
-    clickable: true,
-    draggable: true
- }
+//  var markerOptions = {
+//     title: "MyLocation",
+//     clickable: true,
+//     draggable: true
+//  }
  
  // Creating a marker
- var marker = L.marker([latitude, longitude], markerOptions);
-      bindPopup('Latitude: ' + latitude + '<br>Longitude: ' + longitude)
-      .openPopup();
+ var marker = L.marker([latitude, longitude]);
+      // bindPopup('Latitude: ' + latitude + '<br>Longitude: ' + longitude)
+      // .openPopup();
  
  // Adding marker to the map
  marker.addTo(map);
+ console.log('Latitude:', latitude);
+console.log('Longitude:', longitude);

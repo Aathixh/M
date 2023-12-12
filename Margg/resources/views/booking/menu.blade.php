@@ -20,6 +20,19 @@
         </button>
     </a>
 
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>Bus No</th>
+            <th>Date</th>
+            <th>Arrival Time</th>
+            <th>Duration</th>
+            <th>Departure Time</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </table>
 
 </body>
 

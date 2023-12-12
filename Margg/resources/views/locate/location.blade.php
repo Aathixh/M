@@ -18,11 +18,12 @@
 
 <body>
     <div id="map"></div>
-    <script src="js/map.js">
-        var latitude = {{ $latitude ?? 'null' }};
-        var longitude = {{ $longitude ?? 'null' }};
-        // Now you can use 'latitude' and 'longitude' in  Jat 
+
+    <script>
+        var latitude = {{ $latitude ?? 0 }};
+        var longitude = {{ $longitude ?? 0 }};
     </script>
+    <script src="js/map.js"></script>
 </body>
 
 </html>
