@@ -17,13 +17,20 @@
 </head>
 
 <body>
-    <div id="map"></div>
+    <div id="map" data-latitude="{{' latitude '}}" data-longitude="{{' longitude '}}"></div>
 
-    <script>
+    <!-- <script>
         var latitude = {{ $latitude ?? 0 }};
         var longitude = {{ $longitude ?? 0 }};
-    </script>
-    <script src="js/map.js"></script>
+    </script> -->
+    <!-- @if ($errors->any())
+    <ul style="color: red;">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+    @endif -->
+    <script src="{{ asset('js/map.js') }}"></script>
 </body>
 
 </html>
