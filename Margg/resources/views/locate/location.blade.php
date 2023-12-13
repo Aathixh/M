@@ -1,3 +1,12 @@
+<?php
+// Replace the following lines
+// $latitude = '$latitude'; // Replace 0 with the actual latitude value
+// $longitude = '$longitude'; // Replace 0 with the actual longitude value
+
+// With the compacted values from the ThinkSpeak controller
+$latitude = isset($latitude) ? $latitude : 0;
+$longitude = isset($longitude) ? $longitude : 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,19 +26,15 @@
 </head>
 
 <body>
-    <div id="map" data-latitude="{{' latitude '}}" data-longitude="{{' longitude '}}"></div>
-
-    <!-- <script>
-        var latitude = {{ $latitude ?? 0 }};
-        var longitude = {{ $longitude ?? 0 }};
-    </script> -->
-    <!-- @if ($errors->any())
-    <ul style="color: red;">
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-    @endif -->
+    <div id="map" data-latitude="{{ $latitude }}" data-longitude="{{ $longitude }}"></div>
+    <script>
+        var latitude = <?php echo json_encode($latitude); ?>;
+        var longitude = <?php echo json_encode($longitude); ?>;
+        var mapData = {
+            latitude: latitude,
+            longitude: longitude
+        };
+    </script>
     <script src="{{ asset('js/map.js') }}"></script>
 </body>
 

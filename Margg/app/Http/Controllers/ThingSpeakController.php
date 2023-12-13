@@ -86,25 +86,25 @@ class ThingSpeakController extends Controller
     public function getDataFromThingSpeak()
     {
         $apiKey = 'GXHH4D204XVSA1LO';
-        $url = "https://api.thingspeak.com/channels/2375849/feeds.json?api_key=GXHH4D204XVSA1LO&results=2";
+        $url = "https://api.thingspeak.com/channels/2375849/feeds.json?api_key=GXHH4D204XVSA1LO&results=1";
 
-        $client = new Client();
+        $response = Http::get($url, ['api_key' => $apiKey, 'results' => 2]);
 
+        if ($response->successful()) {
+            $data = $response->json();
 
-        $response = Http::get($url, ['api_key' => $apiKey, 'results' => 1]);
+            if (!empty($data['feeds'])) {
+                $latitude = $data['feeds'][0]['field1'];
+                $longitude = $data['feeds'][0]['field2'];
+            } else {
+                $latitude = null;
+                $longitude = null;
+            }
 
-        // Check if the request was successful (status code 200)
-
-        $data = $response->json();
-
-        // Check if the 'feeds' array is not empty
-
-        // Assuming latitude and longitude are fields in the 'feeds' array
-        $latitude = $data['feeds'][0]['field1']; // Change 'field1' to your actual field name
-        $longitude = $data['feeds'][0]['field2']; // Change 'field2' to your actual field name
-
-        return view('locate.location')->with(['latitude' => $latitude, 'longitude' => $longitude]);
-
+            return view('locate.location')->with(['latitude' => $latitude, 'longitude' => $longitude]);
+        } else {
+            return response()->json(['error' => 'Failed to fetch data from ThingSpeak'], $response->status());
+        }
     }
 }
 
