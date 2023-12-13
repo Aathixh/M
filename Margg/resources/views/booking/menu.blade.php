@@ -41,7 +41,7 @@
             <td>{{$data->Duration}}</td>
             <td>{{$data->Arrival_Time}}</td>
             <td>{{$data->Price}}</td>
-            <td><a href="/locate">
+            <td><a href="/locate_new">
                     <button>
                         <div class="text">Book Now</div>
                     </button>

@@ -32,6 +32,6 @@ Route::view('/home', 'home.index')->middleware('guest');
 Route::get('/signin', [LoginController::class, 'index']);
 Route::post('/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
-Route::get('/locate', [LocateController::class, 'index'])->middleware('auth');
+Route::get('/locate_new', [ThingSpeakController::class, 'getDataFromThingSpeak'])->middleware('auth');
 Route::get('/get-data-from-thingspeak', [ThingSpeakController::class, 'getDataFromThingSpeak']);
-Route::get('/book', [BookingController::class, 'index']);
+Route::get('/book', [BookingController::class, 'index'])->middleware('auth');

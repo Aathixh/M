@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div id="map" data-latitude="{{' latitude '}}" data-longitude="{{' longitude '}}"></div>
+    <div id="map" data-latitude="{{ $latitude }}" data-longitude="{{ $longitude }}"></div>
 
     <!-- <script>
         var latitude = {{ $latitude ?? 0 }};
@@ -30,6 +30,7 @@
         @endforeach
     </ul>
     @endif -->
+
     <script src="{{ asset('js/map.js') }}"></script>
 </body>
 
