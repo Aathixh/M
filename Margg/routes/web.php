@@ -35,3 +35,12 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/locate_new', [ThingSpeakController::class, 'getDataFromThingSpeak'])->middleware('auth');
 Route::get('/get-data-from-thingspeak', [ThingSpeakController::class, 'getDataFromThingSpeak']);
 Route::get('/book', [BookingController::class, 'index'])->middleware('auth');
+
+
+//admin
+Route::get('/admin', [HomeController::class, 'home'])->name('adminhome');
+Route::get('/register', [HomeController::class, 'Adminreg']);
+Route::post('/register', [RegisterController::class, 'AdminRegister'])->name('administrator.register');
+Route::get('/adminlogin', [HomeController::class, 'Adminlog']);
+Route::post('/AdminAuth', [LoginController::class, 'AdminAuthenticate']);
+Route::view('/admin_dashboard', 'administrator.admin')->middleware('auth');
