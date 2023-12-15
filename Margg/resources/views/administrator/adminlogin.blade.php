@@ -9,7 +9,7 @@
 
 <body>
     <h1>Login Page</h1>
-    <form action="/AdminAuth" method="post">
+    <form action="{{route('authLog')}}" method="post">
         @csrf
         @method('post')
         @if($errors->any())
@@ -17,8 +17,8 @@
             {!!implode('',$errors->all('<li>:message</li>'))!!}
         </ul>
         @endif
-        <input name="email" placeholder="Email" type="email">
-        <input name="password" placeholder="Password" type="password">
+        <input name="Admin_email" placeholder="Email" type="email">
+        <input name="Admin_password" placeholder="Password" type="password">
         <button>Login</button>
     </form>
 </body>

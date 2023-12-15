@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminRegisterController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RegisterController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LocateController;
 use App\Http\Controllers\ThingSpeakController;
+use App\Http\Controllers\AdminLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +40,9 @@ Route::get('/book', [BookingController::class, 'index'])->middleware('auth');
 
 
 //admin
-Route::get('/admin', [HomeController::class, 'home'])->name('adminhome');
-Route::get('/register', [HomeController::class, 'Adminreg']);
-Route::post('/register', [RegisterController::class, 'AdminRegister'])->name('administrator.register');
-Route::get('/adminlogin', [HomeController::class, 'Adminlog']);
-Route::post('/AdminAuth', [LoginController::class, 'AdminAuthenticate']);
-Route::view('/admin_dashboard', 'administrator.admin')->middleware('auth');
+Route::get('/adminregister', [AdminRegisterController::class, 'Adminreg'])->name('regpage');
+Route::post('/adminregister', [AdminRegisterController::class, 'AdminRegister'])->name('adminReg');
+Route::get('/AdminSignin', [AdminLoginController::class, 'Adminlog'])->name('logpage');
+Route::post('/AdminAuth', [AdminLoginController::class, 'AdminAuthenticate'])->name('authLog');
+Route::view('/AdminDashboard', 'administrator.admin')->middleware('auth:admin');
+
